@@ -8,7 +8,8 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.FxController">
    <children>
-      <TextArea id="result" fx:id="result" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="572.0" />
-      <Button fx:id="take" layoutX="273.0" layoutY="276.0" mnemonicParsing="false" onAction="#click" text="抽" />
+      <Button fx:id="takeFor10" layoutX="67.0" layoutY="234.0" mnemonicParsing="false" onAction="#clickFor10" text="十連抽" />
+      <TextArea fx:id="result" editable="false" layoutX="67.0" layoutY="34.0" prefHeight="200.0" prefWidth="468.0" promptText="抽卡結果" />
+      <Button fx:id="takeFor1" layoutX="495.0" layoutY="234.0" mnemonicParsing="false" onAction="#clickFor1" text="單抽" />
    </children>
 </AnchorPane>

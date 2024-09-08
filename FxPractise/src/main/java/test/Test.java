@@ -3,13 +3,73 @@ package test;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Test {
 
     private List<String> allChar = new ArrayList<>();
 
-    public List<String> getcards() {
+
+    public List<String> getcards10() {
+        Map<String, Map<Integer,String>> all = character();
+
+        Map<Integer, String> ssrMap = all.get("ssr");
+        Map<Integer, String> srMap = all.get("sr");
+        Map<Integer, String> rMap = all.get("r");
+
+        // 清空之前的結果
+        allChar.clear();
+
+        for (int i = 0; i < 10; i++) {
+            int pro = (int) ((Math.random() * 100) + 1);
+            if (pro == 1) {
+                System.out.println("恭喜抽中SSR:" + getCharacter(ssrMap));
+                allChar.add(getCharacter(ssrMap));
+            } else if (pro <= 11) {
+                System.out.println("恭喜抽中SR:" + getCharacter(srMap));
+                allChar.add(getCharacter(srMap));
+            } else {
+                System.out.println("恭喜抽中R:" + getCharacter(rMap));
+                allChar.add(getCharacter(rMap));
+            }
+
+        }
+        return allChar;
+    }
+
+    public List<String> getcard(){
+        Map<String, Map<Integer,String>> all = character();
+
+        Map<Integer, String> ssrMap = all.get("ssr");
+        Map<Integer, String> srMap = all.get("sr");
+        Map<Integer, String> rMap = all.get("r");
+
+        // 清空之前的結果
+        allChar.clear();
+
+
+            int pro = (int) ((Math.random() * 100) + 1);
+            if (pro == 1) {
+                System.out.println("恭喜抽中SSR:" + getCharacter(ssrMap));
+                allChar.add(getCharacter(ssrMap));
+            } else if (pro <= 11) {
+                System.out.println("恭喜抽中SR:" + getCharacter(srMap));
+                allChar.add(getCharacter(srMap));
+            } else {
+                System.out.println("恭喜抽中R:" + getCharacter(rMap));
+                allChar.add(getCharacter(rMap));
+            }
+
+
+        return allChar;
+    }
+    private static String getCharacter(Map<Integer,String> characterMap) {
+        int randomIndex=ThreadLocalRandom.current().nextInt(1,characterMap.size()+1);
+        return characterMap.get(randomIndex);
+    }
+
+    private static Map<String, Map<Integer, String>> character(){
         HashMap<Integer, String> ssrMap = new HashMap<>();
         ssrMap.put(1, "Kai Viper");
         ssrMap.put(2, "Nova Wisp");
@@ -46,27 +106,11 @@ public class Test {
         rMap.put(19, "Aria Frost");
         rMap.put(20, "Kai Valor");
 
-        // 清空之前的結果
-        allChar.clear();
+        Map<String,Map<Integer,String>> allch = new HashMap<>();
+        allch.put("ssr",ssrMap);
+        allch.put("sr",srMap);
+        allch.put("r",rMap);
 
-        for (int i = 0; i < 10; i++) {
-            int pro = (int) ((Math.random() * 100) + 1);
-            if (pro == 1) {
-                System.out.println("恭喜抽中SSR:" + getCharacter(ssrMap));
-                allChar.add(getCharacter(ssrMap));
-            } else if (pro <= 11) {
-                System.out.println("恭喜抽中SR:" + getCharacter(srMap));
-                allChar.add(getCharacter(srMap));
-            } else {
-                System.out.println("恭喜抽中R:" + getCharacter(rMap));
-                allChar.add(getCharacter(rMap));
-            }
-
-        }
-        return allChar;
-    }
-    private static String getCharacter(HashMap<Integer,String> characterMap) {
-        int randomIndex=ThreadLocalRandom.current().nextInt(1,characterMap.size()+1);
-        return characterMap.get(randomIndex);
+        return allch;
     }
 }
