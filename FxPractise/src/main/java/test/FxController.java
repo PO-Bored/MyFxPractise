@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import model.GameCharacter;
 
 public class FxController {
 
@@ -34,7 +35,7 @@ public class FxController {
         System.out.println("All characters: " + test.getcards10());
 
         // 遍歷所有抽卡結果，並將其附加到 TextArea
-        for (String all : test.getcards10()) {
+        for (GameCharacter all : test.getcards10()) {
             result.appendText(all + "\n");
         }
 
@@ -50,7 +51,7 @@ public class FxController {
         System.out.println("All characters: " + test.getcard());
 
         // 遍歷所有抽卡結果，並將其附加到 TextArea
-        for (String all : test.getcard()) {
+        for (GameCharacter all : test.getcard()) {
             result.appendText(all + "\n");
         }
     }
