@@ -6,10 +6,23 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.FxController">
+<AnchorPane prefHeight="488.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.FxController">
    <children>
       <Button fx:id="takeFor10" layoutX="67.0" layoutY="234.0" mnemonicParsing="false" onAction="#clickFor10" text="十連抽" />
       <TextArea fx:id="result" editable="false" layoutX="67.0" layoutY="34.0" prefHeight="200.0" prefWidth="468.0" promptText="抽卡結果" />
       <Button fx:id="takeFor1" layoutX="495.0" layoutY="234.0" mnemonicParsing="false" onAction="#clickFor1" text="單抽" />
+      <VBox layoutX="67.0" layoutY="264.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label text="SSR數量：" HBox.hgrow="ALWAYS" />
+                  <TextField prefHeight="10.0" prefWidth="128.0" promptText="0" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+            <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+            <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
