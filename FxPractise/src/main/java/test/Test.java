@@ -13,6 +13,11 @@ public class Test {
     private List<GameCharacter> allChar = new ArrayList<>();
 
 
+
+    private Integer ssrQty = 0;
+    private Integer srQty = 0;
+    private Integer rQty = 0;
+
     public List<GameCharacter> getcards10() {
         Map<String, Map<Integer,GameCharacter>> all = character();
 
@@ -28,15 +33,20 @@ public class Test {
             if (pro == 1) {
                 System.out.println("恭喜抽中SSR:" + getCharacter(ssrMap));
                 allChar.add(getCharacter(ssrMap));
+                ssrQty++;
             } else if (pro <= 11) {
                 System.out.println("恭喜抽中SR:" + getCharacter(srMap));
                 allChar.add(getCharacter(srMap));
+                srQty++;
             } else {
                 System.out.println("恭喜抽中R:" + getCharacter(rMap));
                 allChar.add(getCharacter(rMap));
+                rQty++;
             }
 
         }
+        System.out.println(srQty+ssrQty+rQty);
+
         return allChar;
     }
 
@@ -55,12 +65,15 @@ public class Test {
             if (pro == 1) {
                 System.out.println("恭喜抽中SSR:" + getCharacter(ssrMap));
                 allChar.add(getCharacter(ssrMap));
+                ssrQty++;
             } else if (pro <= 11) {
                 System.out.println("恭喜抽中SR:" + getCharacter(srMap));
                 allChar.add(getCharacter(srMap));
+                srQty++;
             } else {
                 System.out.println("恭喜抽中R:" + getCharacter(rMap));
                 allChar.add(getCharacter(rMap));
+                rQty++;
             }
 
 
@@ -114,5 +127,21 @@ public class Test {
         allch.put("r",rMap);
 
         return allch;
+    }
+
+    public Integer getQuantity() {
+        return ssrQty+srQty+rQty;
+    }
+
+    public Integer getSsrQty() {
+        return ssrQty;
+    }
+
+    public Integer getSrQty() {
+        return srQty;
+    }
+
+    public Integer getrQty() {
+        return rQty;
     }
 }
