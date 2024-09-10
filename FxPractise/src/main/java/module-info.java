@@ -4,6 +4,7 @@ module com.po.fxpractise {
 
     requires org.controlsfx.controls;
     requires org.kordamp.bootstrapfx.core;
+    requires jdk.jdi;
 
     opens test to javafx.fxml;
     opens com.po.fxpractise to javafx.fxml;

@@ -12,7 +12,7 @@ public class Test {
 
     private List<GameCharacter> allChar = new ArrayList<>();
 
-
+    private Integer times = 0;
 
     private Integer ssrQty = 0;
     private Integer srQty = 0;
@@ -47,6 +47,8 @@ public class Test {
         }
         System.out.println(srQty+ssrQty+rQty);
 
+        times += 10;
+
         return allChar;
     }
 
@@ -76,8 +78,16 @@ public class Test {
                 rQty++;
             }
 
+            times++;
+
 
         return allChar;
+    }
+
+    public void reset(){
+        ssrQty = 0;
+        srQty = 0;
+        rQty = 0;
     }
     private static GameCharacter getCharacter(Map<Integer,GameCharacter> characterMap) {
         int randomIndex=ThreadLocalRandom.current().nextInt(1,characterMap.size()+1);
@@ -143,5 +153,9 @@ public class Test {
 
     public Integer getrQty() {
         return rQty;
+    }
+
+    public Integer getTimes() {
+        return times;
     }
 }
