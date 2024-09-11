@@ -89,6 +89,38 @@ public class Test {
         srQty = 0;
         rQty = 0;
     }
+
+    public List<GameCharacter> firstSsr() {
+        Map<String, Map<Integer, GameCharacter>> all = character();
+
+        Map<Integer, GameCharacter> ssrMap = all.get("ssr");
+        Map<Integer, GameCharacter> srMap = all.get("sr");
+        Map<Integer, GameCharacter> rMap = all.get("r");
+
+        allChar.clear();
+
+        int pro;
+        do {
+            pro = (int) ((Math.random() * 100) + 1);
+            if (pro == 1) {
+                System.out.println("恭喜抽中SSR:" + getCharacter(ssrMap));
+                allChar.add(getCharacter(ssrMap));
+                ssrQty++;
+            } else if (pro <= 11) {
+                System.out.println("恭喜抽中SR:" + getCharacter(srMap));
+                allChar.add(getCharacter(srMap));
+                srQty++;
+            } else {
+                System.out.println("恭喜抽中R:" + getCharacter(rMap));
+                allChar.add(getCharacter(rMap));
+                rQty++;
+            }
+
+            times++;
+        } while (pro != 1);
+        return allChar;
+    }
+
     private static GameCharacter getCharacter(Map<Integer,GameCharacter> characterMap) {
         int randomIndex=ThreadLocalRandom.current().nextInt(1,characterMap.size()+1);
         return characterMap.get(randomIndex);
@@ -138,6 +170,7 @@ public class Test {
 
         return allch;
     }
+
 
     public Integer getQuantity() {
         return ssrQty+srQty+rQty;

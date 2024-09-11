@@ -8,6 +8,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import model.GameCharacter;
 
+import java.util.List;
+
 public class FxController {
 
     @FXML
@@ -42,10 +44,13 @@ public class FxController {
 
     private Integer times;
 
+    private Integer totalDrawn;
+
     @FXML
     public void initialize() {
         test = new Test();
         times = 0;
+        totalDrawn = 0;
     }
 
     @FXML
@@ -106,5 +111,35 @@ public class FxController {
         quantity.setText(String.valueOf(test.getQuantity()));
         result.clear();
         allResult.clear();
+    }
+
+    @FXML
+    void firstSSR(ActionEvent event) {
+        System.out.println("Button Clicked");  // 檢查按鈕是否被點擊
+
+        // 清空之前的結果
+        result.clear();
+
+        List<GameCharacter> first= test.firstSsr();
+
+        allResult.appendText("第" + (totalDrawn+1)+ "~");
+        //TODO 總數顯示部分未處理
+
+        allResult.appendText(totalDrawn + "抽"+"\n");
+
+
+        // 遍歷所有抽卡結果，並將其附加到 TextArea
+        for (GameCharacter all : first) {
+
+            result.appendText(all + "\n");
+            allResult.appendText(all + "\n");
+        }
+        System.out.println("結束");
+
+        quantity.setText(String.valueOf(test.getQuantity()));
+        ssrquantity.setText(String.valueOf(test.getSsrQty()));
+        srquantity.setText(String.valueOf(test.getSrQty()));
+        rquantity.setText(String.valueOf(test.getrQty()));
+
     }
 }

@@ -43,5 +43,6 @@
             <TextArea fx:id="allResult" editable="false" promptText="抽卡歷程" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
+      <Button layoutX="259.0" layoutY="345.0" mnemonicParsing="false" onAction="#firstSSR" text="第一張SSR" />
    </children>
 </AnchorPane>
