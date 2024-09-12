@@ -123,8 +123,7 @@ public class FxController {
         List<GameCharacter> first= test.firstSsr();
 
         allResult.appendText("第" + (totalDrawn+1)+ "~");
-        //TODO 總數顯示部分未處理
-
+        totalDrawn+=first.size();
         allResult.appendText(totalDrawn + "抽"+"\n");
 
 
