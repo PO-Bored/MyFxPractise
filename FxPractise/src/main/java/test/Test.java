@@ -10,13 +10,13 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Test {
 
-    private List<GameCharacter> allChar = new ArrayList<>();
+    private static List<GameCharacter> allChar = new ArrayList<>();
 
     private Integer times = 0;
 
-    private Integer ssrQty = 0;
-    private Integer srQty = 0;
-    private Integer rQty = 0;
+    private static Integer ssrQty = 0;
+    private static Integer srQty = 0;
+    private static Integer rQty = 0;
 
     public List<GameCharacter> getcards10() {
         Map<String, Map<Integer,GameCharacter>> all = character();
@@ -29,21 +29,7 @@ public class Test {
         allChar.clear();
 
         for (int i = 0; i < 10; i++) {
-            int pro = (int) ((Math.random() * 100) + 1);
-            if (pro == 1) {
-                System.out.println("恭喜抽中SSR:" + getCharacter(ssrMap));
-                allChar.add(getCharacter(ssrMap));
-                ssrQty++;
-            } else if (pro <= 11) {
-                System.out.println("恭喜抽中SR:" + getCharacter(srMap));
-                allChar.add(getCharacter(srMap));
-                srQty++;
-            } else {
-                System.out.println("恭喜抽中R:" + getCharacter(rMap));
-                allChar.add(getCharacter(rMap));
-                rQty++;
-            }
-
+            drawsCard(ssrMap, srMap, rMap);
         }
         System.out.println(srQty+ssrQty+rQty);
 
@@ -62,24 +48,9 @@ public class Test {
         // 清空之前的結果
         allChar.clear();
 
-
-            int pro = (int) ((Math.random() * 100) + 1);
-            if (pro == 1) {
-                System.out.println("恭喜抽中SSR:" + getCharacter(ssrMap));
-                allChar.add(getCharacter(ssrMap));
-                ssrQty++;
-            } else if (pro <= 11) {
-                System.out.println("恭喜抽中SR:" + getCharacter(srMap));
-                allChar.add(getCharacter(srMap));
-                srQty++;
-            } else {
-                System.out.println("恭喜抽中R:" + getCharacter(rMap));
-                allChar.add(getCharacter(rMap));
-                rQty++;
-            }
+            drawsCard(ssrMap, srMap, rMap);
 
             times++;
-
 
         return allChar;
     }
@@ -171,7 +142,22 @@ public class Test {
         return allch;
     }
 
-
+    private static void drawsCard(Map<Integer,GameCharacter> ssr,
+                                  Map<Integer,GameCharacter> sr,
+                                  Map<Integer,GameCharacter> r
+                                  ) {
+        int pro = (int) ((Math.random() * 100) + 1);
+        if (pro == 1) {
+            allChar.add(getCharacter(ssr));
+            ssrQty++;
+        } else if (pro <= 11) {
+            allChar.add(getCharacter(sr));
+            srQty++;
+        } else {
+            allChar.add(getCharacter(r));
+            rQty++;
+        }
+    }
     public Integer getQuantity() {
         return ssrQty+srQty+rQty;
     }
