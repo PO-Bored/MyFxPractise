@@ -17,6 +17,8 @@ public class Test {
     private static Integer ssrQty = 0;
     private static Integer srQty = 0;
     private static Integer rQty = 0;
+    private static Integer ssrPro=1;
+    private static Integer srPro=10;
 
     public List<GameCharacter> getcards10() {
         Map<String, Map<Integer,GameCharacter>> all = character();
@@ -147,10 +149,10 @@ public class Test {
                                   Map<Integer,GameCharacter> r
                                   ) {
         int pro = (int) ((Math.random() * 100) + 1);
-        if (pro == 1) {
+        if (pro == ssrPro) {
             allChar.add(getCharacter(ssr));
             ssrQty++;
-        } else if (pro <= 11) {
+        } else if (pro <= srPro+ssrPro) {
             allChar.add(getCharacter(sr));
             srQty++;
         } else {
