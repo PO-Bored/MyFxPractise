@@ -76,15 +76,12 @@ public class Test {
         do {
             pro = (int) ((Math.random() * 100) + 1);
             if (pro == 1) {
-                System.out.println("恭喜抽中SSR:" + getCharacter(ssrMap));
                 allChar.add(getCharacter(ssrMap));
                 ssrQty++;
             } else if (pro <= 11) {
-                System.out.println("恭喜抽中SR:" + getCharacter(srMap));
                 allChar.add(getCharacter(srMap));
                 srQty++;
             } else {
-                System.out.println("恭喜抽中R:" + getCharacter(rMap));
                 allChar.add(getCharacter(rMap));
                 rQty++;
             }
