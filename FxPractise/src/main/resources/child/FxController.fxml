@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="488.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.FxController">
+    <children>
+        <Button fx:id="takeFor10" layoutX="67.0" layoutY="234.0" mnemonicParsing="false" onAction="#clickFor10" text="十連抽" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="468.0" />
+        <Button fx:id="takeFor1" layoutX="495.0" layoutY="234.0" mnemonicParsing="false" onAction="#clickFor1" text="單抽" AnchorPane.rightAnchor="67.0" />
+        <VBox layoutX="67.0" layoutY="264.0" prefHeight="0.0" prefWidth="117.0">
+            <children>
+                <HBox prefHeight="23.0" prefWidth="133.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <Label prefHeight="23.0" prefWidth="58.0" text="SSR數量" HBox.hgrow="ALWAYS" />
+                        <TextField fx:id="ssrquantity" alignment="CENTER_RIGHT" editable="false" prefHeight="23.0" prefWidth="59.0" promptText="0" />
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <Label prefHeight="23.0" prefWidth="58.0" text="SR數量" />
+                        <TextField fx:id="srquantity" alignment="CENTER_RIGHT" editable="false" prefHeight="23.0" prefWidth="59.0" promptText="0" />
+                    </children></HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <Label prefHeight="23.0" prefWidth="58.0" text="R數量" />
+                        <TextField fx:id="rquantity" alignment="CENTER_RIGHT" editable="false" prefHeight="23.0" prefWidth="59.0" promptText="0" />
+                    </children></HBox>
+                <HBox prefHeight="4.0" prefWidth="117.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <Label prefHeight="23.0" prefWidth="58.0" text="抽卡總數" />
+                        <TextField fx:id="quantity" alignment="CENTER_RIGHT" editable="false" prefHeight="23.0" prefWidth="59.0" promptText="0" />
+                    </children></HBox>
+            </children>
+        </VBox>
+        <Button fx:id="reset" layoutX="276.0" layoutY="234.0" mnemonicParsing="false" onAction="#resetAll" text="重製" />
+        <HBox layoutX="68.0" layoutY="34.0" prefHeight="200.0" prefWidth="466.0" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="67.0">
+            <children>
+                <TextArea fx:id="result" editable="false" promptText="抽卡結果" HBox.hgrow="ALWAYS" />
+                <TextArea fx:id="allResult" editable="false" promptText="抽卡歷程" HBox.hgrow="ALWAYS" />
+            </children>
+        </HBox>
+        <Button layoutX="259.0" layoutY="345.0" mnemonicParsing="false" onAction="#firstSSR" text="第一張SSR" />
+    </children>
+</AnchorPane>

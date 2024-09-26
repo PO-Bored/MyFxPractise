@@ -147,6 +147,7 @@ public class FxController {
         quantity.setText(String.valueOf(test.getQuantity()));
         result.clear();
         allResult.clear();
+        totalDrawn = 0;
     }
 
     @FXML
